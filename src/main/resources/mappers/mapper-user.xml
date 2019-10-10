@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="club.mangooi.springboot.demo.mapper.UserMapper">
+
+
+    <!--id对应接口中的方法，名字要一样，parameterType是方法的参数类型，
+    resultType是查询返回的类型，需要注意的是，这里的SQL语句后面不能加分号，变量不能加引号-->
+    <select id="getUsers" resultType="User">
+        SELECT * FROM USER
+    </select>
+    <select id="getActiveUsers" resultType="User">
+        SELECT * FROM USER WHERE DEL_FLAG = 0
+    </select>
+    <select id="getDeletedUsers" resultType="User">
+        SELECT * FROM USER WHERE DEL_FLAG = 1
+    </select>
+    <select id="getUserById" parameterType="int" resultType="User">
+        SELECT * FROM USER WHERE id = #{id}
+    </select>
+    <select id="getUserByUserId" parameterType="String" resultType="User">
+        SELECT * FROM USER WHERE USER_ID = #{userId}
+    </select>
+    <insert id="insert" parameterType="User">
+        INSERT INTO USER (USER_ID,USER_PHONE) VALUES (#{userId},#{userPhone})
+    </insert>
+    <update id="update" parameterType="User">
+        UPDATE USER SET
+          USER_ID = #{userId},
+          USER_PHONE = #{userPhone}
+        WHERE ID = #{id}
+    </update>
+    <update id="delete" parameterType="User">
+        UPDATE USER SET
+          DEL_FLAG = 1
+        where ID = #{id};
+    </update>
+
+
+
+</mapper>
