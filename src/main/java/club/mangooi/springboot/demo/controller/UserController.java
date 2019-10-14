@@ -1,7 +1,6 @@
 package club.mangooi.springboot.demo.controller;
 
 
-import club.mangooi.springboot.demo.annotation.Authorization;
 import club.mangooi.springboot.demo.request.UserLoginRequest;
 import club.mangooi.springboot.demo.request.UserRegisterRequest;
 import club.mangooi.springboot.demo.service.UserService;
