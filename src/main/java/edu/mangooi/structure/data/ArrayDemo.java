@@ -15,19 +15,42 @@ public class ArrayDemo<T> {
         count = 0;
     }
 
-    public synchronized boolean add(Object o) {
+    public int getSize() {
+        return count;
+    }
+
+
+    public boolean isEmpty() {
+        return count == 0;
+    }
+
+    public boolean add(Object o) {
         checkCapacity(count + 1);
         value[count++] = o;
         return false;
     }
 
+    public T get(int index) {
+        checkRange(index);
+        return getByIndex(index);
+    }
+
+
+    private void checkRange(int index) {
+        if (index < 0 || index >= this.count) {
+            throw new IndexOutOfBoundsException();
+        }
+    }
 
 
     @Override
     public String toString() {
+        if (count == 0) return "";
+        int count = this.count;
+        Object[] value = this.value;
         StringBuilder builder = new StringBuilder();
-        for (Object o : value) {
-            builder.append(o);
+        for (int i = 0; i < count; i++) {
+            builder.append(i == count - 1 ? value[i] : value[i] + ",");
         }
         return builder.toString();
     }
@@ -44,8 +67,12 @@ public class ArrayDemo<T> {
         return (T) value[index];
     }
 
+
     public static void main(String[] args) {
         ArrayDemo<String> test = new ArrayDemo<>(10);
+        test.add("abc");
+        test.add("cdferaa");
         System.out.println(test);
+        System.out.println(test.get(0));
     }
 }
