@@ -1,5 +1,6 @@
 package edu.mangooi.structure.data;
 
+
 public class TimeMulti {
     public int function1(int n) {
         int i = 1;
@@ -11,7 +12,7 @@ public class TimeMulti {
         return count;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         TimeMulti test1 = new TimeMulti();
         System.out.println(test1.function1(100));
     }

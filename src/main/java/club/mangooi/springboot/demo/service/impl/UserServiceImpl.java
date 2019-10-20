@@ -10,14 +10,17 @@ import club.mangooi.springboot.demo.mapper.UserRoleMapper;
 import club.mangooi.springboot.demo.service.UserService;
 import club.mangooi.springboot.demo.utils.SingletonMybatis;
 import club.mangooi.springboot.demo.utils.PWDUtil;
+import club.mangooi.springboot.demo.utils.TokenUtil;
 import club.mangooi.springboot.demo.utils.model.PWDModel;
 import org.apache.ibatis.session.SqlSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
 @Service
 public class UserServiceImpl implements UserService {
+
     @Override
     public boolean register(UserRegisterRequest form) {
         //获取数据库连接
@@ -67,7 +70,7 @@ public class UserServiceImpl implements UserService {
         PWDModel pwdModel = userRoleMapper.getPWDModel(id);
         //System.out.println(pwdModel.getHashedPassword()+pwdModel.getSaltKey());
         sqlSession.close();
-        return PWDUtil.checkPwd(pwdModel,password);
+        return PWDUtil.checkPwd(pwdModel, password);
     }
 
 }

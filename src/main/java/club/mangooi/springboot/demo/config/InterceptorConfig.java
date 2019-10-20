@@ -15,11 +15,7 @@ import java.util.List;
 @Configuration
 @Component
 public class InterceptorConfig extends WebMvcConfigurationSupport {
-    /*@Override
-    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/").addResourceLocations("/**");
-        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
-    }*/
+
 
     @Override
     protected void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
@@ -28,10 +24,7 @@ public class InterceptorConfig extends WebMvcConfigurationSupport {
 
     @Override
     protected void addInterceptors(InterceptorRegistry registry) {
-        List<String> urlPatterns = new ArrayList<>();
-        urlPatterns.add("/user/*");
-        registry.addInterceptor(authorizationInterceptor()).addPathPatterns(urlPatterns);
-        super.addInterceptors(registry);
+        registry.addInterceptor(authorizationInterceptor()).addPathPatterns("/**");
     }
 
     @Bean
