@@ -32,8 +32,8 @@ public class TokenUtil {
         if (cacheValue == null) {
             return false;
         }
-        //???????????????
-        return tokenValue.equals(cacheValue);
+
+        return EncryptUtil.check(key,tokenValue,cacheValue);
     }
 
     public static String parseForKey(String user){
