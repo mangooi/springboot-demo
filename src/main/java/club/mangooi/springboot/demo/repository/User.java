@@ -1,4 +1,4 @@
-package club.mangooi.springboot.demo.bean;
+package club.mangooi.springboot.demo.repository;
 
 
 public class User {

@@ -14,9 +14,9 @@
     </settings>
     <!--别名，就是将后面那一堆，用User代替-->
     <typeAliases>
-        <typeAlias alias="User" type="club.mangooi.springboot.demo.bean.User"/>
-        <typeAlias alias="UserInfo" type="club.mangooi.springboot.demo.bean.UserInfo"/>
-        <typeAlias alias="UserRole" type="club.mangooi.springboot.demo.bean.UserRole"/>
+        <typeAlias alias="User" type="club.mangooi.springboot.demo.repository.User"/>
+        <typeAlias alias="UserInfo" type="club.mangooi.springboot.demo.repository.UserInfo"/>
+        <typeAlias alias="UserRole" type="club.mangooi.springboot.demo.repository.UserRole"/>
     </typeAliases>
     <!--环境配置-->
     <environments default="development">

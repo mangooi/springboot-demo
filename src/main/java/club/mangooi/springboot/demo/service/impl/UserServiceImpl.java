@@ -1,8 +1,8 @@
 package club.mangooi.springboot.demo.service.impl;
 
-import club.mangooi.springboot.demo.bean.User;
-import club.mangooi.springboot.demo.bean.UserInfo;
-import club.mangooi.springboot.demo.bean.UserRole;
+import club.mangooi.springboot.demo.repository.User;
+import club.mangooi.springboot.demo.repository.UserInfo;
+import club.mangooi.springboot.demo.repository.UserRole;
 import club.mangooi.springboot.demo.request.UserRegisterRequest;
 import club.mangooi.springboot.demo.mapper.UserInfoMapper;
 import club.mangooi.springboot.demo.mapper.UserMapper;
@@ -10,10 +10,8 @@ import club.mangooi.springboot.demo.mapper.UserRoleMapper;
 import club.mangooi.springboot.demo.service.UserService;
 import club.mangooi.springboot.demo.utils.SingletonMybatis;
 import club.mangooi.springboot.demo.utils.PWDUtil;
-import club.mangooi.springboot.demo.utils.TokenUtil;
 import club.mangooi.springboot.demo.utils.model.PWDModel;
 import org.apache.ibatis.session.SqlSession;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;

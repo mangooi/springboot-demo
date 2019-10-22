@@ -1,7 +1,7 @@
 package club.mangooi.springboot.demo.controller;
 
 
-import club.mangooi.springboot.demo.bean.UserInfo;
+import club.mangooi.springboot.demo.repository.UserInfo;
 import club.mangooi.springboot.demo.mapper.UserInfoMapper;
 import club.mangooi.springboot.demo.utils.SingletonMybatis;
 import org.apache.ibatis.session.SqlSession;

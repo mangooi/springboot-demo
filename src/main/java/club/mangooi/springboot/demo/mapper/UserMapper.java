@@ -1,6 +1,6 @@
 package club.mangooi.springboot.demo.mapper;
 
-import club.mangooi.springboot.demo.bean.User;
+import club.mangooi.springboot.demo.repository.User;
 
 import java.util.List;
 
