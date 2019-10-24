@@ -8,31 +8,31 @@
     <!--id对应接口中的方法，名字要一样，parameterType是方法的参数类型，
     resultType是查询返回的类型，需要注意的是，这里的SQL语句后面不能加分号，变量不能加引号-->
     <select id="getUsers" resultType="User">
-        SELECT * FROM USER
+        SELECT * FROM user_mst
     </select>
     <select id="getActiveUsers" resultType="User">
-        SELECT * FROM USER WHERE DEL_FLAG = 0
+        SELECT * FROM user_mst WHERE del_flag = 0
     </select>
     <select id="getDeletedUsers" resultType="User">
-        SELECT * FROM USER WHERE DEL_FLAG = 1
+        SELECT * FROM user_mst WHERE del_flag = 1
     </select>
     <select id="getUserById" parameterType="int" resultType="User">
-        SELECT * FROM USER WHERE id = #{id}
+        SELECT * FROM user_mst WHERE user_id = #{userId}
     </select>
     <select id="getUserByUserId" parameterType="String" resultType="User">
-        SELECT * FROM USER WHERE USER_ID = #{userId}
+        SELECT * FROM user_mst WHERE user_id = #{userId}
     </select>
     <insert id="insert" parameterType="User">
-        INSERT INTO USER (USER_ID,USER_PHONE) VALUES (#{userId},#{userPhone})
+        INSERT INTO user_mst (USER_ID,USER_PHONE) VALUES (#{userId},#{userPhone})
     </insert>
     <update id="update" parameterType="User">
-        UPDATE USER SET
+        UPDATE user_mst SET
           USER_ID = #{userId},
           USER_PHONE = #{userPhone}
         WHERE ID = #{id}
     </update>
     <update id="delete" parameterType="User">
-        UPDATE USER SET
+        UPDATE user_mst SET
           DEL_FLAG = 1
         where ID = #{id};
     </update>

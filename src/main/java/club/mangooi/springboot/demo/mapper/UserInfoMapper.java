@@ -5,11 +5,11 @@ import club.mangooi.springboot.demo.repository.UserInfo;
 import java.util.List;
 
 public interface UserInfoMapper {
-    public UserInfo getById(int id);
-    boolean insert(String userId);
-    public List<UserInfo> getUsers();
-    public boolean updateUser(UserInfo userInfo);
-    public boolean deleteUser(int id);
-    public boolean deleteAllUsers();
+    UserInfo getByUserId(String userId);
+    boolean insert(UserInfo userInfo);
+    List<UserInfo> getUsers();
+    boolean updateUser(UserInfo userInfo);
+    boolean deleteUser(int id);
+    boolean deleteAllUsers();
 
 }

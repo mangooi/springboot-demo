@@ -6,28 +6,28 @@
 
     <!--id对应接口中的方法，名字要一样，parameterType是方法的参数类型，
     resultType是查询返回的类型，需要注意的是，这里的SQL语句后面不能加分号，变量不能加引号-->
-    <insert id="insert" parameterType="string">
-        insert into user_Info(USER_ID) values(#{userId})
+    <insert id="insert" parameterType="User">
+        insert into user_Info(user_id,user_name,user_coi) values(#{userId},#{userName},#{userCoi})
     </insert>
 
     <select id="getUsers"  resultType="User">
-        select * from user_Info order by #{id}
+        select * from user_Info order by #{userId}
     </select>
 
     <update id="updateUser" parameterType="User">
-        update user_Info set name=#{name} where id = #{id}
+        update user_Info set user_name=#{name},user_coi=#{userCoi} where user_id = #{userId}
     </update>
 
     <delete id="deleteAllUsers">
         delete from user_Info
     </delete>
 
-    <delete id="deleteUser" parameterType="int">
-        delete from user_Info where id = #{id}
+    <delete id="deleteUser" parameterType="String">
+        delete from user_Info where user_id = #{userId}
     </delete>
 
-    <select id="getById" parameterType="int" resultType="User">
-        select * from user_Info where id = #{id}
+    <select id="getByUserId" parameterType="String" resultType="User">
+        select * from user_Info where user_id = #{userId}
     </select>
 
 

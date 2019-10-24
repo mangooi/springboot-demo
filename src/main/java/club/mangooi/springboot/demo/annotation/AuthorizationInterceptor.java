@@ -24,6 +24,7 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
         Method method = handlerMethod.getMethod();
         if (method.getAnnotation(Authorization.class) == null) {
             String currentUser = request.getParameter(Constants.CURRENT_USER);
+            request.setAttribute(Constants.CURRENT_USER,currentUser);
             String tokenValue = request.getParameter(Constants.TOKEN_VALUE);
             if (currentUser == null || tokenValue == null) {
                 System.out.println("Null Error");

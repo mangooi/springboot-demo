@@ -22,7 +22,7 @@ public class TokenUtil {
 
     public static String create(String key) {
         String saltValue = EncryptUtil.getSalt();
-        String tokenValue = EncryptUtil.hash((EncryptUtil.hash(key) + saltValue));
+        String tokenValue = EncryptUtil.encrypt(key,saltValue);
         redisTemplate.opsForValue().set(key, saltValue);
         return tokenValue;
     }
@@ -32,7 +32,6 @@ public class TokenUtil {
         if (cacheValue == null) {
             return false;
         }
-
         return EncryptUtil.check(key,tokenValue,cacheValue);
     }
 

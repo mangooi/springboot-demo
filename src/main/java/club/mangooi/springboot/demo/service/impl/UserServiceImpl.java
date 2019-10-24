@@ -51,7 +51,7 @@ public class UserServiceImpl implements UserService {
 
         //数据库操作
         userMapper.insert(user);
-        userInfoMapper.insert(form.getUserId());
+        userInfoMapper.insert(userInfo);
         userRoleMapper.register(userRole);
 
         sqlSession.commit();
