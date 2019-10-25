@@ -35,6 +35,6 @@
     <mappers>
         <mapper resource="mappers/mapper-user-info.xml"/>
         <mapper resource="mappers/mapper-user-role.xml"/>
-        <mapper resource="mappers/mapper-user.xml"/>
+        <mapper resource="mappers/mapper-user-mst.xml"/>
     </mappers>
 </configuration>

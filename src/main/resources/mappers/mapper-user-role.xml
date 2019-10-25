@@ -9,7 +9,7 @@
 
 
     <insert id="register" parameterType="UserRole">
-        insert into user_Role values(#{userId},#{hashedPassword},#{saltKey},#{authority},#{lastUpdatedTime},#{createdTime},#{ver})
+        insert into user_Role values(#{userId},#{hashedPassword},#{saltKey},#{authority},sysdate(),sysdate(),#{ver})
     </insert>
 
 

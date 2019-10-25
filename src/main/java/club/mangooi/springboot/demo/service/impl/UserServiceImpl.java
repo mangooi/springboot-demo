@@ -39,15 +39,12 @@ public class UserServiceImpl implements UserService {
         UserInfo userInfo = new UserInfo();
         userInfo.setUserId(form.getUserId());
 
-        //以下这部分以后封装
+        //UserRole
         UserRole userRole = new UserRole();
         userRole.setUserId(form.getUserId());
         userRole.setHashedPassword(model.getHashedPassword());
         userRole.setSaltKey(model.getSaltKey());
         userRole.setAuthority(form.getAuthority());
-        Date date = new Date();
-        userRole.setCreatedTime(date);
-        userRole.setLastUpdatedTime(date);
 
         //数据库操作
         userMapper.insert(user);
