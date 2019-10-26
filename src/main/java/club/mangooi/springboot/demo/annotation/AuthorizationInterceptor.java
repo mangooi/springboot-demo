@@ -16,7 +16,6 @@ public class AuthorizationInterceptor extends HandlerInterceptorAdapter {
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) {
-        System.out.println("AuthorizationInterceptor.preHandle(...)");
         if (!(handler instanceof HandlerMethod)) {
             return true;
         }

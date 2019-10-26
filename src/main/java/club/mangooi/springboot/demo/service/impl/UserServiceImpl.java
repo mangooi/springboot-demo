@@ -14,18 +14,15 @@ import club.mangooi.springboot.demo.utils.model.PWDModel;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-
 @Service
 public class UserServiceImpl implements UserService {
 
     @Override
     public boolean register(UserRegisterRequest form) {
         //获取数据库连接
-        SqlSession sqlSession = SingletonMybatis.getSqlSession();
-        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
-        UserInfoMapper userInfoMapper = sqlSession.getMapper(UserInfoMapper.class);
-        UserRoleMapper userRoleMapper = sqlSession.getMapper(UserRoleMapper.class);
+        UserMapper userMapper = getMapper(UserMapper.class);
+        UserInfoMapper userInfoMapper = getMapper(UserInfoMapper.class);
+        UserRoleMapper userRoleMapper = getMapper(UserRoleMapper.class);
 
         //密码加密
         PWDModel model = PWDUtil.initPwd(form.getPassword());
@@ -51,8 +48,6 @@ public class UserServiceImpl implements UserService {
         userInfoMapper.insert(userInfo);
         userRoleMapper.register(userRole);
 
-        sqlSession.commit();
-        sqlSession.close();
 
         return true;
     }
@@ -63,7 +58,6 @@ public class UserServiceImpl implements UserService {
         SqlSession sqlSession = SingletonMybatis.getSqlSession();
         UserRoleMapper userRoleMapper = sqlSession.getMapper(UserRoleMapper.class);
         PWDModel pwdModel = userRoleMapper.getPWDModel(id);
-        //System.out.println(pwdModel.getHashedPassword()+pwdModel.getSaltKey());
         sqlSession.close();
         return PWDUtil.checkPwd(pwdModel, password);
     }

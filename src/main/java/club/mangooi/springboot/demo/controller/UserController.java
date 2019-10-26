@@ -26,7 +26,6 @@ public class UserController {
     @RequestMapping(method = RequestMethod.POST, value = "/login")
     @Authorization
     public String loginCheck(UserLoginRequest form) {
-        System.out.println("UserController.loginCheck(...)");
         return userService.login(form.getUserId(), form.getPassword()) ? TokenUtil.create(form.getUserId()) : "";
     }
 
