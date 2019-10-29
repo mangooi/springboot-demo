@@ -1,5 +1,6 @@
-package club.mangooi.springboot.demo.annotation;
+package club.mangooi.springboot.demo.config;
 
+import club.mangooi.springboot.demo.annotation.Authorization;
 import club.mangooi.springboot.demo.utils.Constants;
 import club.mangooi.springboot.demo.utils.TokenUtil;
 import org.springframework.stereotype.Component;

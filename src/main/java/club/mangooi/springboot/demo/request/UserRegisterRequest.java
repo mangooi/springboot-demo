@@ -1,5 +1,8 @@
 package club.mangooi.springboot.demo.request;
 
+import lombok.Data;
+
+@Data
 public class UserRegisterRequest {
     private String userId;
     private String userPhone;
@@ -16,35 +19,4 @@ public class UserRegisterRequest {
         this.authority = authority;
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public String getUserPhone() {
-        return userPhone;
-    }
-
-    public void setUserPhone(String userPhone) {
-        this.userPhone = userPhone;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getAuthority() {
-        return authority;
-    }
-
-    public void setAuthority(String authority) {
-        this.authority = authority;
-    }
 }

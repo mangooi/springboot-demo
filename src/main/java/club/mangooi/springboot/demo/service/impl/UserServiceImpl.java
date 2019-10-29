@@ -8,10 +8,8 @@ import club.mangooi.springboot.demo.mapper.UserInfoMapper;
 import club.mangooi.springboot.demo.mapper.UserMapper;
 import club.mangooi.springboot.demo.mapper.UserRoleMapper;
 import club.mangooi.springboot.demo.service.UserService;
-import club.mangooi.springboot.demo.utils.SingletonMybatis;
 import club.mangooi.springboot.demo.utils.PWDUtil;
 import club.mangooi.springboot.demo.utils.model.PWDModel;
-import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -54,12 +52,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean login(String id, String password) {
-        //获取数据库连接
-        SqlSession sqlSession = SingletonMybatis.getSqlSession();
-        UserRoleMapper userRoleMapper = sqlSession.getMapper(UserRoleMapper.class);
+        UserRoleMapper userRoleMapper = getMapper(UserRoleMapper.class);
         PWDModel pwdModel = userRoleMapper.getPWDModel(id);
-        sqlSession.close();
         return PWDUtil.checkPwd(pwdModel, password);
     }
+
 
 }
