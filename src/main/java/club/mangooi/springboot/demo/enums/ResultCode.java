@@ -51,12 +51,6 @@ public enum ResultCode {
     }
 
 
-    @Override
-    public String toString() {
-        return this.name();
-    }
-
-
     public int getCode() {
         return code;
     }

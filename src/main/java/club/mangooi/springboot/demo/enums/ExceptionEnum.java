@@ -6,6 +6,10 @@ import org.springframework.http.HttpStatus;
 
 public enum ExceptionEnum {
     /**
+     * OK
+     */
+    BUSINESS_ERROR(BusinessException.class, HttpStatus.OK,ResultCode.SUCCESS),
+    /**
      * 无效参数
      */
     PARAMETER_INVALID(ParameterInvalidException.class, HttpStatus.BAD_REQUEST, ResultCode.PARAM_IS_INVALID),

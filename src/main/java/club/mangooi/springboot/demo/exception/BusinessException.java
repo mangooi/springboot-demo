@@ -3,8 +3,10 @@ package club.mangooi.springboot.demo.exception;
 import club.mangooi.springboot.demo.enums.ExceptionEnum;
 import club.mangooi.springboot.demo.enums.ResultCode;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.util.StringUtils;
 
+@EqualsAndHashCode(callSuper = true)
 @Data
 public class BusinessException extends RuntimeException{
     protected String code;
@@ -19,6 +21,11 @@ public class BusinessException extends RuntimeException{
             code = String.valueOf(exceptionEnum.getResultCode().getCode());
             message = exceptionEnum.getResultCode().getMessage();
         }
+    }
+
+    public BusinessException(Object data){
+        this();
+        this.data = data;
     }
 
     public BusinessException(String message){
