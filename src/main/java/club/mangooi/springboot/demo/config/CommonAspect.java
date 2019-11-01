@@ -14,9 +14,9 @@ import javax.servlet.http.HttpServletRequest;
 
 @Aspect
 @Component
-public class TestLogAspect {
+public class CommonAspect {
 
-    private Logger logger = LoggerFactory.getLogger(TestLogAspect.class);
+    private Logger logger = LoggerFactory.getLogger(CommonAspect.class);
 
     @Pointcut("@within(org.springframework.stereotype.Service)")
     public void servicePointCut(){}

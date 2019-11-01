@@ -1,5 +1,6 @@
 package club.mangooi.springboot.demo.utils;
 
+import club.mangooi.springboot.demo.exception.BusinessException;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
@@ -19,12 +20,19 @@ public class TokenUtil {
     private TokenUtil() {
     }
 
-
     public static String create(String key) {
         String saltValue = EncryptUtil.getSalt();
         String tokenValue = EncryptUtil.encrypt(key,saltValue);
         redisTemplate.opsForValue().set(key, saltValue);
         return tokenValue;
+    }
+
+    public static String destory(String key,String tokenValue) {
+        if (check(key,tokenValue)){
+            redisTemplate.delete(key);
+            return tokenValue;
+        }
+        throw new BusinessException("MappingError");
     }
 
     public static boolean check(String key, String tokenValue) {

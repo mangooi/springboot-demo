@@ -8,7 +8,7 @@ public enum ExceptionEnum {
     /**
      * OK
      */
-    BUSINESS_ERROR(BusinessException.class, HttpStatus.OK,ResultCode.SUCCESS),
+    BUSINESS_SUCCESS(BusinessException.class, HttpStatus.OK,ResultCode.SUCCESS),
     /**
      * 无效参数
      */

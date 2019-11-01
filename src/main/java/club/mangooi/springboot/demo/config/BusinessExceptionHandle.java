@@ -11,9 +11,6 @@ public class BusinessExceptionHandle {
     @ExceptionHandler(value = BusinessException.class)
     @ResponseBody
     public ExceptionResponse handle(BusinessException e){
-        if (e != null){
             return new ExceptionResponse(e);
-        }
-        return new ExceptionResponse(new BusinessException("ERROR!!!!!!!!!!!!!!!!!!!"));
     }
 }
