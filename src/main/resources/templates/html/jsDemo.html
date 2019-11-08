@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<form>
+    输入：&nbsp;<input type="text" id="input1" value="1" title="test">
+    <br/>
+    结果：&nbsp;<input type="text" id="ret" value="" title="result">
+    <br/>
+    <input type="button" id="button" title="commit" value="字符串长度" onclick="strLength('ret','input1')">
+    <br/>
+    <input type="button" id="button-counter" title="counter" value="计数" onclick="counterDemo('ret')">
+    <br/>
+    <input type="button" id="button-counter-1" title="counter" value="counterButton1"
+           onclick="document.getElementById(this.id).value = counterTool.counter">
+    <br/>
+    <input type="button" id="button-counter-2" title="counter" value="counterButton2"
+           onclick="counterTool.counterToComponentById(this.id)">
+</form>
+<script>
+    function strLength(to, from) {
+        var iText = document.getElementById(to);
+        var s = document.getElementById(from);
+        iText.value = s.value.length;
+    }
+
+    var add = (function () {
+        var counter = 0;
+        return function () {
+            return counter += 1;
+        }
+    })();
+
+    function counterDemo(id) {
+        document.getElementById(id).value = add();
+    }
+
+    var counterTool = {
+        add: function () {
+            var cnter = 0;
+            return function () {
+                return cnter += 1;
+            }
+        }(),
+        get counter() {
+            return this.add();
+        },
+        counterToComponentById(id) {
+            document.getElementById(id).value = 'count : ' + this.add();
+        }
+    }
+
+</script>
+</body>
+</html>
