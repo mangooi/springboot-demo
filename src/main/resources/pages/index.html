@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tools belonging to Mangooi</title>
+    <style>
+        .header {
+            background-color: black;
+            color: white;
+            text-align: center;
+            padding: 5px;
+            height: 50px;
+            font-size: 2em;
+        }
+
+        .nav {
+            line-height: 50px;
+            background-color: #eeeeee;
+            height: calc(100% - 70px);
+            width: 20%;
+            float: left;
+            padding: 5px;
+            overflow-y: auto;
+        }
+
+        .section {
+            width: calc(80% - 20px);
+            height: calc(100% - 70px);
+            float: left;
+            padding: 5px;
+            overflow-y: auto;
+        }
+
+        .footer {
+            position: absolute;
+            top: calc(100% - 30px);
+            left: 0;
+            color: white;
+            text-align: center;
+            height: 20px;
+            width: 100%;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 0;
+            background-color: black;
+        }
+        .baseBody{
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            height: calc(100% - 30px);
+            width: calc(100%);
+        }
+    </style>
+
+    <script>
+        function loadNav(obj) {
+            var temp = [1,2,3,4,5,6,7,8];
+            console.log("hello");
+            temp.forEach(function (value) {
+                var menu = document.createElement('h3');
+                var text = document.createTextNode('Menu'+value);
+                menu.appendChild(text);
+                obj.appendChild(menu);
+                console.log(value);
+            })
+        }
+    </script>
+</head>
+
+<body background="../photo/sea.jpg" onload="loadNav(document.getElementById('nav'))">
+<div class="baseBody">
+    <div id="header" class="header">Tools belonging to Mangooi</div>
+
+    <div id="nav" class="nav"></div>
+
+    <div id="section" class="section">
+        <h2>London</h2>
+        <p>
+            London is the capital city of England. It is the most populous city in the United Kingdom,
+            with a metropolitan area of over 13 million inhabitants.
+        </p>
+        <p>
+            Standing on the River Thames, London has been a major settlement for two millennia,
+            its history going back to its founding by the Romans, who named it Londinium.
+        </p>
+    </div>
+</div>
+<div id="footer" class="footer">
+    Copyright@Mangooi
+</div>
+
+</body>
+</html>
