@@ -1,0 +1,53 @@
+.header {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    height: 50px;
+    font-size: 2em;
+}
+
+.nav {
+    line-height: 50px;
+    background-color: #eeeeee;
+    height: calc(100% - 70px);
+    width: 20%;
+    float: left;
+    padding: 5px;
+    overflow-y: auto;
+}
+
+.section {
+    width: calc(80% - 20px);
+    height: calc(100% - 70px);
+    float: left;
+    padding: 5px;
+    overflow-y: auto;
+}
+
+.footer {
+    position: absolute;
+    top: calc(100% - 30px);
+    left: 0;
+    color: white;
+    text-align: center;
+    height: 20px;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 0;
+    background-color: black;
+}
+.baseBody{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: calc(100% - 30px);
+    width: calc(100%);
+}
+.menu {
+    border: 1px ridge #000;
+    text-align: center;
+    margin: 5px;
+}

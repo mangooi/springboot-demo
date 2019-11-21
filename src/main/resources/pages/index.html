@@ -3,101 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Tools belonging to Mangooi</title>
-    <style>
-        .header {
-            background-color: black;
-            color: white;
-            text-align: center;
-            padding: 5px;
-            height: 50px;
-            font-size: 2em;
-        }
+    <link rel="stylesheet" type = text/css href = ../css/common.css>
+    <script src = "../js/common.js"></script>
 
-        .nav {
-            line-height: 50px;
-            background-color: #eeeeee;
-            height: calc(100% - 70px);
-            width: 20%;
-            float: left;
-            padding: 5px;
-            overflow-y: auto;
-        }
-
-        .section {
-            width: calc(80% - 20px);
-            height: calc(100% - 70px);
-            float: left;
-            padding: 5px;
-            overflow-y: auto;
-        }
-
-        .footer {
-            position: absolute;
-            top: calc(100% - 30px);
-            left: 0;
-            color: white;
-            text-align: center;
-            height: 20px;
-            width: 100%;
-            padding-top: 5px;
-            padding-bottom: 5px;
-            padding-left: 0;
-            background-color: black;
-        }
-        .baseBody{
-            position: absolute;
-            top: 0;
-            right: 0;
-            left: 0;
-            height: calc(100% - 30px);
-            width: calc(100%);
-        }
-        .menu{
-            border: 1px ridge #000;
-            text-align: center;
-            margin: 5px;
-
-        }
-    </style>
-
-    <script>
-        function loadNav(obj) {
-            var temp = ['index',
-                'Hello',
-                'input_demo'
-            ];
-            temp.forEach(function (value) {
-                var text1 = '<div class="menu" onclick="sectionLoad(';
-                var text2 = "'";
-                var text3 = value;
-                var text4 = ')">'+value+'</div>';
-                var text = text1 + text2 + text3 + text2 + text4;
-                console.log(text);
-                obj.innerHTML += text;
-                console.log(value);
-            })
-        }
-        function sectionLoad(name) {
-            if (name === "index"){
-                goHome();
-                return;
-            }
-            // By Mapping
-            var temp = '<object type="text/html" data="';
-            temp += name;
-            temp += '.html" width="100%" height="100%"></object>';
-            document.getElementById('section').innerHTML = temp;
-        }
-        function goHome() {
-            window.location.href = 'index.html';
-        }
-
-    </script>
 </head>
 
 <body background="../photo/sea.jpg" onload="loadNav(document.getElementById('nav'))">
 <div class="baseBody">
-    <div id="header" class="header">Tools belonging to Mangooi</div>
+    <div id="header" class="header" onclick="test()">Tools belonging to Mangooi</div>
 
     <div id="nav" class="nav"></div>
 

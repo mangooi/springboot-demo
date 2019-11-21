@@ -3,7 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script>
+        function strLength(to, from) {
+            var iText = document.getElementById(to);
+            var s = document.getElementById(from);
+            iText.value = s.value.length;
+        }
 
+        var add = (function () {
+            var counter = 0;
+            return function () {
+                return counter += 1;
+            }
+        })();
+
+        function counterDemo(id) {
+            document.getElementById(id).value = add();
+        }
+
+        var counterTool = {
+            add: function () {
+                var cnter = 0;
+                return function () {
+                    return cnter += 1;
+                }
+            }(),
+            get counter() {
+                return this.add();
+            },
+            counterToComponentById(id) {
+                document.getElementById(id).value = 'count : ' + this.add();
+            }
+        }
+
+    </script>
 </head>
 <body>
 <form>
@@ -21,39 +54,6 @@
     <input type="button" id="button-counter-2" title="counter" value="counterButton2"
            onclick="counterTool.counterToComponentById(this.id)">
 </form>
-<script>
-    function strLength(to, from) {
-        var iText = document.getElementById(to);
-        var s = document.getElementById(from);
-        iText.value = s.value.length;
-    }
 
-    var add = (function () {
-        var counter = 0;
-        return function () {
-            return counter += 1;
-        }
-    })();
-
-    function counterDemo(id) {
-        document.getElementById(id).value = add();
-    }
-
-    var counterTool = {
-        add: function () {
-            var cnter = 0;
-            return function () {
-                return cnter += 1;
-            }
-        }(),
-        get counter() {
-            return this.add();
-        },
-        counterToComponentById(id) {
-            document.getElementById(id).value = 'count : ' + this.add();
-        }
-    }
-
-</script>
 </body>
 </html>
