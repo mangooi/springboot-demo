@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajaxDemo</title>
+    <script src = "../js/jquery-3.4.1.js"></script>
+    <script>
+        function loadXMLDoc()
+        {
+            var xmlhttp;
+            if (window.XMLHttpRequest)
+            {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {// code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            xmlhttp.onreadystatechange=function()
+            {
+                if (xmlhttp.readyState==4)
+                {
+                    document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+                }
+            }
+            xmlhttp.open("GET","http://localhost:8080/index/users?userId=mangooi&tokenValue=100d664590a477baaf93840f750ec256d928e613f5cbc6bd192aeb550d5e92e1",true);
+            xmlhttp.send();
+            /*xmlhttp.open("POST","http://localhost:8080/user/login");
+            xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+            xmlhttp.send("userId=mangooi&password=a2100283&token");*/
+        }
+        $(document).ready(function () {
+            $(".btnTest").click(function () {
+                $.get("http://localhost:8080/index/users",
+                    {
+                        userId:"mangooi",
+                        tokenValue:"100d664590a477baaf93840f750ec256d928e613f5cbc6bd192aeb550d5e92e1"
+                    },function (data, status) {
+                        $(".text").html(JSON.stringify(data)+"\n"+status);
+                    });
+            });
+        });
+    </script>
+</head>
+<body>
+<h2>AJAX</h2>
+<button type="button" onclick="loadXMLDoc()">请求数据</button>
+<div id="myDiv"></div>
+<button type="button" class="btnTest">Jquery Ajax Test Button</button>
+<div id="response" class="text">text</div>
+</body>
+</html>

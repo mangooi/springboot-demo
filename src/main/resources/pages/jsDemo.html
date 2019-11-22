@@ -15,7 +15,7 @@
             return function () {
                 return counter += 1;
             }
-        })();
+                })();
 
         function counterDemo(id) {
             document.getElementById(id).value = add();
@@ -31,7 +31,7 @@
             get counter() {
                 return this.add();
             },
-            counterToComponentById(id) {
+            counterToComponentById : function(id) {
                 document.getElementById(id).value = 'count : ' + this.add();
             }
         }

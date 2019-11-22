@@ -2,7 +2,8 @@ function loadNav(obj) {
     var temp = ['index',
         'Hello',
         'input_demo',
-        'jsDemo'
+        'jsDemo',
+        'ajaxDemo'
     ];
     temp.forEach(function (value) {
         var text1 = '<div class="menu" onclick="sectionLoad(';
@@ -60,14 +61,16 @@ function TagTool() {
         return this;
     };
     this.attr = function (att, value) {
-        this.text.appendS().append(att).appendS().appendE().appendS().appendDQ().append(value).appendDQ();
+        this.text.appendS().append(att).appendS().appendE().appendS().appendDQ()
+            .append(value).appendDQ();
         return this;
     };
     this.endTag = function (innerText) {
         if (this.type == null) {
             console.log("please call tagType Method");
         }
-        return this.text.append('>').append(innerText ? innerText : '').append('</').append(this.type).append('>').toString();
+        return this.text.append('>').append(innerText ? innerText : '').append('</')
+            .append(this.type).append('>').toString();
     };
 }
 
